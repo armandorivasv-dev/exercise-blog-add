@@ -6,31 +6,45 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import { useParams } from 'react-router-dom';
+import { doc } from 'firebase/firestore';
+import { useFirestoreDocData, useFirestore } from 'reactfire';
 
 
-const PostDetail = ({ post }) => {
+const PostDetail = () => {
+
+  const { postId } = useParams()
+
+  const postRef = doc(useFirestore(), 'posts', postId);
+  
+  const { status, data } = useFirestoreDocData(postRef)
+
+  if (status === 'loading') {
+      return <p>Fetching...</p>;
+    }
 
   return (
-    <Grid item key={post.id} xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 645 }}>
+    <Grid container>
+      <Grid item key={data.id} xs={12} sm={12} md={12}>
+      <Card sx={{ maxWidth: 1260 }}>
         <CardMedia
           component="img"
           height="345"
-          image="https://via.placeholder.com/500/000000/FFFFFF/?text=POST IMAGE"
+          image="https://picsum.photos/1200"
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {post.title}
+            {data.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {post.author}
+            {data.author}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {post.subtitle}
+            {data.subtitle}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {post.content}
+            {data.content}
           </Typography>
         </CardContent>
         <CardActions>
@@ -38,6 +52,9 @@ const PostDetail = ({ post }) => {
         </CardActions>
       </Card>
     </Grid>
+
+    </Grid>
+
   )
 }
 
