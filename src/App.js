@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import { getFirestore } from 'firebase/firestore';
 import { FirestoreProvider, useFirebaseApp } from 'reactfire';
+import AddPost from './components/AddPost';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
               <Route path='/' element={<PostListContainer  />}/>
               <Route path='/detail/:postId' element={<PostDetailContainer />}/>
               <Route path='/category/:categoryId' element={<PostListContainer  />}/>
+              <Route path='/addpost' element={<AddPost  />}/>
             </Routes>
         </BrowserRouter>
       </FirestoreProvider>

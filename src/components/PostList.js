@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import { useParams } from 'react-router-dom';
 import { collection, query, where } from 'firebase/firestore';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { Container } from '@mui/system';
 
 const PostList = () => {
 
