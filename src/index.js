@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { FirebaseAppProvider } from 'reactfire';
-import { firebaseConfig } from './components/fireconfigKey'
+import { firebaseConfig } from './components/fireconfigKey';
+import { BrowserRouter as Router} from 'react-router-dom';
+
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyBcEfDRpZUZTWs71iLk7NhIknloeZb-dss",
@@ -19,7 +21,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <Router>
       <App />
+      </Router>
+    
     </FirebaseAppProvider>
   </React.StrictMode>
 );
