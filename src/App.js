@@ -15,6 +15,7 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoginActions } from './components/login/LoginActions';
+import Footer from './components/footer/Footer';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
               <Route path='/detail/:postId' element={<PostDetailContainer />}/>
               <Route path='/category/:categoryId' element={<PostListContainer  />}/>              
             </Routes>
+      <Footer />
       </FirestoreProvider>
       <ToastContainer />
     </div>
