@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@mui/material';
-import PostDetail from '../components/PostDetail';
+import PostDetail from '../components/post/PostDetail';
 
 
 const PostDetailContainer = () => {

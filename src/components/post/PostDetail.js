@@ -30,8 +30,8 @@ const PostDetail = () => {
         <CardMedia
           component="img"
           height="345"
-          image="https://picsum.photos/1200"
-          alt="green iguana"
+          image={data.image}
+          alt={data.title}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -43,7 +43,7 @@ const PostDetail = () => {
           <Typography variant="body2" color="text.secondary">
             {data.subtitle}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" align="justify">
             {data.content}
           </Typography>
         </CardContent>

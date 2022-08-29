@@ -8,22 +8,18 @@ import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Button from '@mui/material/Button';
 
-const LoginForm = ( { title, setEmail, setPassword, handleActionButton }) => {
+const LoginForm = ({ title, setEmail, setPassword, handleActionButton }) => {
 
+  const [message, setMessage] = useState('')
 
-  const [ message, setMessage ] = useState('')
-
-  useEffect(()=>{
-    if ( title === 'login'){
-      setMessage(<Button href="/register" variant="contained">Not user? Click to register</Button> )
-
+  useEffect(() => {
+    if (title === 'login') {
+      setMessage(<Button href="/Register" variant="outlined" color="inherit" fullWidth>Not user? Click to register</Button>)
     }
-    if ( title === 'register'){
-      setMessage(<Button href="/login" variant="contained">User? Click to login</Button> )
-
+    if (title === 'register') {
+      setMessage(<Button href="/Login" variant="outlined" color="inherit" fullWidth>User? Click to login</Button>)
     }
-
-  },[])
+  }, [])
 
   return (
     <Container maxWidth="xs" sx={{ mt: 10 }}>
@@ -35,34 +31,47 @@ const LoginForm = ( { title, setEmail, setPassword, handleActionButton }) => {
           alignItems: 'center',
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
+        <Avatar sx={{ m: 1, bgcolor: 'secundary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
 
-        <Typography variant="h6" gutterBottom align="center">
+        <Typography variant="h6" gutterBottom align="center" sx={{ textTransform: 'uppercase' }} >
           {title} Form
         </Typography>
 
         <Box
           component="form"
-          sx={{
-            '& > :not(style)': { m: 1, width: '40ch' },
-          }}
+          sx={{ m: 1, width: '60ch' }}
           noValidate
           autoComplete="on"
         >
-          <TextField id="email" label="Enter email" variant="outlined" onChange={(e) => setEmail(e.target.value)} />
-          <TextField id="password" label="Enter password" variant="outlined" onChange={(e) => setPassword(e.target.value)} />
-          <LoginButtons title={title} handleActionButton={handleActionButton} />
-          {message}
-        </Box>      
-
-
+          <TextField
+            margin="normal"
+            fullWidth
+            id="email"
+            label="Enter email"
+            variant="outlined"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            margin="normal"
+            fullWidth
+            id="password"
+            label="Enter password"
+            variant="outlined"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Box sx={{ mt: 2 }}>
+            <LoginButtons
+              title={title}
+              handleActionButton={handleActionButton}
+            />
+          </Box>
+          <Box sx={{ mt: 2 }}>
+            {message}
+          </Box>
+        </Box>
       </Box>
-     
-
-
-
     </Container>
 
   )

@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import LoginForm from './LoginForm';
-
+import { Container } from '@mui/material';
 
 export const LoginActions = ({ title }) => {
 
@@ -24,10 +24,9 @@ export const LoginActions = ({ title }) => {
         .then((response) => {
           console.log(email)
           navigate('/addpost')
-          sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
-          sessionStorage.setItem('Auth Email', email)
+          sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
+          sessionStorage.setItem('AuthEmail', email)
         })
-
         .catch((error) => {
           if (error.code === 'auth/invalid-email') {
             toast.error('Invalid or blank email')
@@ -41,7 +40,6 @@ export const LoginActions = ({ title }) => {
           if (error.code === 'auth/wrong-password') {
             toast.error('Wrong password')
           }
-
         })
     }
 
@@ -49,8 +47,8 @@ export const LoginActions = ({ title }) => {
       createUserWithEmailAndPassword(authentication, email, password)
         .then((response) => {
           navigate('/addpost')
-          sessionStorage.setItem('Auth Token', response._tokenResponse.refreshToken)
-          sessionStorage.setItem('Auth Email', email)
+          sessionStorage.setItem('AuthToken', response._tokenResponse.refreshToken)
+          sessionStorage.setItem('AuthEmail', email)
         })
         .catch((error) => {
           if (error.code === 'auth/invalid-email') {
@@ -68,15 +66,21 @@ export const LoginActions = ({ title }) => {
 
   // PERMITE OCULTAR LOGIN Y REGISTER SI EXISTE TOKEN
   useEffect(() => {
-    let authToken = sessionStorage.getItem('Auth Token')
+    let authToken = sessionStorage.getItem('AuthToken')
     if (authToken) {
       navigate('/addpost')
     }
   }, [])
 
   return (
-    <>
-      <LoginForm title={title} email={email} setEmail={setEmail} setPassword={setPassword} handleActionButton={() => handleActionButton({ title })} />
-    </>
+    <Container>
+      <LoginForm 
+        title={title} 
+        email={email} 
+        setEmail={setEmail} 
+        setPassword={setPassword} 
+        handleActionButton={() => handleActionButton({ title })} 
+      />
+    </Container>
   )
 }

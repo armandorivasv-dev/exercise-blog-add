@@ -3,6 +3,14 @@ import Button from '@mui/material/Button';
 
 export const LoginButtons = ( { title, handleActionButton }) => {
   return (
-    <Button variant="contained" onClick={handleActionButton}>{title}</Button>
+    <Button 
+      variant="outlined" 
+      color="inherit" 
+      onClick={handleActionButton} 
+      fullWidth 
+      disabled
+    >
+      {title}
+    </Button>
   )
 }

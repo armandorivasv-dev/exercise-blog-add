@@ -16,6 +16,8 @@ const PostList = () => {
 
   const { categoryId } = useParams()
 
+  console.log(categoryId)
+
   const firetore = useFirestore()
 
   const postCollection = collection(firetore, 'posts')
@@ -49,8 +51,8 @@ const PostList = () => {
               <CardMedia
                 component="img"
                 height="345"
-                image="https://picsum.photos/300/300"
-                alt="green iguana"
+                image={e.image}
+                alt={e.title}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">

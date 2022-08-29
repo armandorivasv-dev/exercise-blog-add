@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
 import logo from '../assets/logo-oscuro-armandoweb-agency.png';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import { Link } from '@mui/material';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const category = [
   { title: 'All', link: '/' },
-  { title: 'Javascript', link: 'category/1' },
-  { title: 'HTML', link: 'category/2' },
-  { title: 'CSS', link: 'category/3' }
+  { title: 'Javascript', link: '/category/javascript' },
+  { title: 'HTML', link: '/category/html' },
+  { title: 'CSS', link: '/category/css' }
 ];
-console.log(category)
-
 
 const NavBar = () => {
 
@@ -38,14 +33,13 @@ const NavBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="inherit">
         <Toolbar disableGutters>
-        <Link href="https://armandoweb.agency/" >
-          <Box component="img" sx={{ width: 120, display: { xs: 'none', md: 'flex' } }} src={logo} />
-        </Link>
-       
+          <Link href="https://armandoweb.agency/" >
+            <Box component="img" sx={{ width: 120, display: { xs: 'none', md: 'flex' } }} src={logo} />
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="link armandoweb.agency"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -74,7 +68,16 @@ const NavBar = () => {
               {category.map((e) => (<Button key={e.title} href={e.link} color="inherit">{e.title}</Button>))}
             </Menu>
             <Box sx={{ flexGrow: 1, justifyContent: 'center' }}>
-              <Button href='/login' color="inherit">Login</Button>
+              <IconButton
+                size="large"
+                aria-label="login icon"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                color="inherit"
+                href='/login'
+              >
+                <AccountCircle />
+              </IconButton>
             </Box>
           </Box>
 
@@ -87,9 +90,17 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
-            <Button href='/login' color="inherit">Login</Button>
+            <IconButton
+              size="large"
+              aria-label="login icon"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+              href='/login'
+            >
+              <AccountCircle />
+            </IconButton>
           </Box>
-
         </Toolbar>
       </AppBar>
     </Box>
