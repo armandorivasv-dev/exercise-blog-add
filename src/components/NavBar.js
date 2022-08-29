@@ -7,8 +7,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import logo from '../assets/logo-oscuro-armandoweb-agency.png';
 import Menu from '@mui/material/Menu';
-import { Link } from '@mui/material';
+//import { Link } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Link, NavLink } from 'react-router-dom';
 
 const category = [
   { title: 'All', link: '/' },
@@ -33,7 +34,7 @@ const NavBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="inherit">
         <Toolbar disableGutters>
-          <Link href="https://armandoweb.agency/" >
+          <Link to="https://armandoweb.agency/" >
             <Box component="img" sx={{ width: 120, display: { xs: 'none', md: 'flex' } }} src={logo} />
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -65,7 +66,7 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {category.map((e) => (<Button key={e.title} href={e.link} color="inherit">{e.title}</Button>))}
+              {category.map((e) => (<NavLink key={e.title} to={e.link} color="inherit">{e.title}</NavLink>))}
             </Menu>
             <Box sx={{ flexGrow: 1, justifyContent: 'center' }}>
               <IconButton
@@ -81,12 +82,12 @@ const NavBar = () => {
             </Box>
           </Box>
 
-          <Link href="https://armandoweb.agency/">
+          <Link to="https://armandoweb.agency/">
             <Box component="img" sx={{ width: 100, mr: 1, display: { xs: 'flex', md: 'none' } }} src={logo} />
           </Link>
 
           <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
-            {category.map((e) => (<Button key={e.title} href={e.link} color="inherit">{e.title}</Button>))}
+            {category.map((e) => (<NavLink key={e.title} to={e.link} color="inherit">{e.title}</NavLink>))}
           </Box>
 
           <Box sx={{ justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
