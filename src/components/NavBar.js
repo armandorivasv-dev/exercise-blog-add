@@ -9,6 +9,7 @@ import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Link, NavLink } from 'react-router-dom';
 import MenuItem from '@mui/material/MenuItem';
+import { Link as LinkMui } from '@mui/material';
 
 const category = [
   { title: 'ALL', link: '/' },
@@ -33,9 +34,9 @@ const NavBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="inherit">
         <Toolbar disableGutters>
-          <Link to="https://armandoweb.agency/" >
+          <LinkMui href="https://armandoweb.agency/" >
             <Box component="img" sx={{ width: 120, display: { xs: 'none', md: 'flex' } }} src={logo} />
-          </Link>
+          </LinkMui>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -81,9 +82,9 @@ const NavBar = () => {
               </IconButton>
             </Box>
           </Box>
-          <Link to="https://armandoweb.agency/">
+          <LinkMui href="https://armandoweb.agency/">
             <Box component="img" sx={{ width: 100, mr: 1, display: { xs: 'flex', md: 'none' } }} src={logo} />
-          </Link> 
+          </LinkMui> 
 
 
           <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
