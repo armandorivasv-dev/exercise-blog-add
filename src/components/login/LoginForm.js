@@ -54,7 +54,7 @@ const LoginForm = ({ title, setEmail, setPassword, handleActionButton }) => {
         </Typography>
         <Box
           component="form"
-          sx={{ m: 1, width: '60ch' }}
+          sx={{ m: 1, width: '40ch' }}
           noValidate
           autoComplete="on"
         >

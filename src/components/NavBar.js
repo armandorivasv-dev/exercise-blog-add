@@ -9,10 +9,11 @@ import logo from '../assets/logo-oscuro-armandoweb-agency.png';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Link, NavLink } from 'react-router-dom';
+import MenuItem from '@mui/material/MenuItem';
 
 const category = [
-  { title: 'All', link: '/' },
-  { title: 'Javascript', link: '/category/javascript' },
+  { title: 'ALL', link: '/' },
+  { title: 'JAVASCRIPT', link: '/category/javascript' },
   { title: 'HTML', link: '/category/html' },
   { title: 'CSS', link: '/category/css' }
 ];
@@ -65,7 +66,7 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {category.map((e) => (<Button key={e.title} variant="outlined" size="small"><NavLink to={e.link} color="inherit">{e.title}</NavLink></Button>))}
+              {category.map((e) => (<MenuItem key={e.title}><NavLink to={e.link} style={{ textDecoration: "none", color: "#000000"  }} color="inherit">{e.title}</NavLink></MenuItem>))}
             </Menu>
             <Box sx={{ flexGrow: 1, justifyContent: 'center' }}>
               <IconButton
@@ -75,7 +76,7 @@ const NavBar = () => {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <Link to="/login">
+                <Link to="/login" style={{ color: "#000000" }}>
                   <AccountCircle />
                 </Link>
               </IconButton>
@@ -84,8 +85,9 @@ const NavBar = () => {
           <Link to="https://armandoweb.agency/">
             <Box component="img" sx={{ width: 100, mr: 1, display: { xs: 'flex', md: 'none' } }} src={logo} />
           </Link>
+          
           <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
-            {category.map((e) => (<Button key={e.title}><NavLink to={e.link} style={{ textDecoration: "none" }}> {e.title} </NavLink></Button>))}
+            {category.map((e) => (<MenuItem key={e.title}><NavLink to={e.link} style={{ textDecoration: "none", color: "#000000" }}> {e.title}</NavLink></MenuItem>))}
           </Box>
           <Box sx={{ justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
             <IconButton
@@ -93,9 +95,9 @@ const NavBar = () => {
               aria-label="login icon"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              color="inherit"
+              color="primary"
             >
-              <Link to="/login">
+              <Link to="/login" style={{ color: "#000000" }}>
                 <AccountCircle />
               </Link>
             </IconButton>
