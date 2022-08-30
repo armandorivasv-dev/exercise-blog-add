@@ -78,7 +78,6 @@ const AddPost = () => {
           <Link href="/login" onClick={handleLogout} variant="outlined"> logout</Link>
         </Box>
       </Box>
-
       <Box
         component="form"
         sx={{'& > :not(style)': { m: 5 }}}
@@ -89,8 +88,6 @@ const AddPost = () => {
         <Typography variant="h6" gutterBottom align="center">
           FORM TO ADD POST
         </Typography>
-
-
         <Box sx={{'& > :not(style)': { m: 1, width: '102ch' }}}>
           <FormControl variant="standard">
             <InputLabel htmlFor="component-simple">Title</InputLabel>
@@ -102,9 +99,7 @@ const AddPost = () => {
             />
           </FormControl>
         </Box>
-
         <Box sx={{'& > :not(style)': { m: 1, width: '102ch' }}}>
-
           <FormControl variant="standard">
             <InputLabel htmlFor="component-simple">Subtitle</InputLabel>
             <Input
@@ -115,9 +110,7 @@ const AddPost = () => {
             />
           </FormControl>
         </Box>
-
         <Box sx={{'& > :not(style)': { m: 1, width: '102ch' }}}>
-
           <FormControl variant="standard">
             <InputLabel htmlFor="component-simple">URL image</InputLabel>
             <Input
@@ -127,9 +120,7 @@ const AddPost = () => {
               inputProps={ariaLabel}
             />
           </FormControl>
-
         </Box>
-
         <Box sx={{'& > :not(style)': { m: 1, width: '50ch' }}}>
           <FormControl variant="standard">
             <InputLabel htmlFor="component-simple">Category</InputLabel>
@@ -140,7 +131,6 @@ const AddPost = () => {
               inputProps={ariaLabel}
             />
           </FormControl>
-
           <FormControl variant="standard">
             <InputLabel htmlFor="component-simple">Author</InputLabel>
             <Input
@@ -150,7 +140,6 @@ const AddPost = () => {
             />
           </FormControl>
         </Box>
-
         <Box sx={{'& > :not(style)': { m: 1, width: '102ch' } }}>
           <FormControl variant="standard">
             <InputLabel htmlFor="component-simple">Content</InputLabel>
@@ -162,15 +151,10 @@ const AddPost = () => {
               multiline
             />
           </FormControl>
-
         </Box>
         <Button type="submit" variant="outlined">SEND POST</Button>
       </Box>
-
     </Container>
-
-
-
   )
 }
 

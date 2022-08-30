@@ -21,8 +21,8 @@ function App() {
       <NavBar />
             <Routes>
               <Route path='/' element={<PostListContainer  />}/>
-              <Route path='/Login' element={<LoginActions title='login' />} />
-              <Route path='/Register' element={<LoginActions title='register'/>}/> 
+              <Route path='/login' element={<LoginActions title='login' />} />
+              <Route path='/register' element={<LoginActions title='register'/>}/> 
               <Route path='/addpost' element={<AddPost  />}/>              
               <Route path='/detail/:postId' element={<PostDetailContainer />}/>
               <Route path='/category/:categoryId' element={<PostListContainer  />}/>              

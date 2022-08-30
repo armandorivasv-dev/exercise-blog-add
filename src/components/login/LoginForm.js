@@ -7,19 +7,34 @@ import { LoginButtons } from './LoginButtons';
 import Avatar from '@mui/material/Avatar';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const LoginForm = ({ title, setEmail, setPassword, handleActionButton }) => {
 
   const [message, setMessage] = useState('')
 
+  console.log(title)
+
   useEffect(() => {
     if (title === 'login') {
-      setMessage(<Button href="/Register" variant="outlined" color="inherit" fullWidth>Not user? Click to register</Button>)
+      setMessage(
+        <Link to={`/register`} style={{ textDecoration: "none", color: "#000000" }}>
+          <Button variant="outlined" color="inherit" fullWidth>
+            Not user? Click to register
+          </Button>
+        </Link>
+      )
     }
     if (title === 'register') {
-      setMessage(<Button href="/Login" variant="outlined" color="inherit" fullWidth>User? Click to login</Button>)
+      setMessage(
+        <Link to={`/login`} style={{ textDecoration: "none", color: "#000000" }}>
+          <Button variant="outlined" color="inherit" fullWidth>
+            User? Click to login
+          </Button>
+        </Link>
+      )
     }
-  }, [])
+  }, [title])
 
   return (
     <Container maxWidth="xs" sx={{ mt: 10 }}>
@@ -34,11 +49,9 @@ const LoginForm = ({ title, setEmail, setPassword, handleActionButton }) => {
         <Avatar sx={{ m: 1, bgcolor: 'secundary.main' }}>
           <LockOutlinedIcon />
         </Avatar>
-
-        <Typography variant="h6" gutterBottom align="center" sx={{ textTransform: 'uppercase' }} >
+        <Typography variant="h6" gutterBottom align="center" sx={{ textTransform: 'uppercase' }}>
           {title} Form
         </Typography>
-
         <Box
           component="form"
           sx={{ m: 1, width: '60ch' }}

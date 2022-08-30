@@ -7,7 +7,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import logo from '../assets/logo-oscuro-armandoweb-agency.png';
 import Menu from '@mui/material/Menu';
-//import { Link } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -66,7 +65,7 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {category.map((e) => (<NavLink key={e.title} to={e.link} color="inherit">{e.title}</NavLink>))}
+              {category.map((e) => (<Button key={e.title} variant="outlined" size="small"><NavLink to={e.link} color="inherit">{e.title}</NavLink></Button>))}
             </Menu>
             <Box sx={{ flexGrow: 1, justifyContent: 'center' }}>
               <IconButton
@@ -75,21 +74,19 @@ const NavBar = () => {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 color="inherit"
-                href='/login'
               >
-                <AccountCircle />
+                <Link to="/login">
+                  <AccountCircle />
+                </Link>
               </IconButton>
             </Box>
           </Box>
-
           <Link to="https://armandoweb.agency/">
             <Box component="img" sx={{ width: 100, mr: 1, display: { xs: 'flex', md: 'none' } }} src={logo} />
           </Link>
-
           <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
-            {category.map((e) => (<NavLink key={e.title} to={e.link} color="inherit">{e.title}</NavLink>))}
+            {category.map((e) => (<Button key={e.title}><NavLink to={e.link} style={{ textDecoration: "none" }}> {e.title} </NavLink></Button>))}
           </Box>
-
           <Box sx={{ justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
             <IconButton
               size="large"
@@ -97,9 +94,10 @@ const NavBar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               color="inherit"
-              href='/login'
             >
-              <AccountCircle />
+              <Link to="/login">
+                <AccountCircle />
+              </Link>
             </IconButton>
           </Box>
         </Toolbar>

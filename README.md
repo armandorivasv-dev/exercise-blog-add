@@ -1,4 +1,4 @@
-# EXERCICE - Blog App whit React and MUI
+# EXERCICE - Blog App whit React, Firebase and MUI
 ## App para mostrar post de blog
 Ejercicio de practica que permite mostrar y agregar post
 ## _Descripción_

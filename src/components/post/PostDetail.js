@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import { useParams } from 'react-router-dom';
 import { doc } from 'firebase/firestore';
 import { useFirestoreDocData, useFirestore } from 'reactfire';
-
+import { Link } from 'react-router-dom';
 
 const PostDetail = () => {
 
@@ -48,7 +48,7 @@ const PostDetail = () => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button href={`/`} color="inherit" variant="outlined">BLACK TO BLOG</Button> 
+          <Link to={`/`} style={{textDecoration: "none", color: "#000"}}><Button color="inherit" variant="outlined">BLACK TO BLOG</Button></Link>
         </CardActions>
       </Card>
     </Grid>

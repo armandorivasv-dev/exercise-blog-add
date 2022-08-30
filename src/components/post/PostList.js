@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { collection, query, where } from 'firebase/firestore';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 
@@ -69,7 +69,7 @@ const PostList = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button href={`/detail/${e.id}`} color="inherit" variant="outlined">LEARN MORE</Button>
+                <Link to={`/detail/${e.id}`} style={{textDecoration: "none", color: "#000"}}><Button color="inherit" variant="outlined">LEARN MORE</Button></Link>
               </CardActions>
             </Card>
           </Grid>
