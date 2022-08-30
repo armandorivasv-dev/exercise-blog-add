@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
@@ -84,8 +83,7 @@ const NavBar = () => {
           </Box>
           <Link to="https://armandoweb.agency/">
             <Box component="img" sx={{ width: 100, mr: 1, display: { xs: 'flex', md: 'none' } }} src={logo} />
-          </Link>
-          
+          </Link>          
           <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
             {category.map((e) => (<MenuItem key={e.title}><NavLink to={e.link} style={{ textDecoration: "none", color: "#000000" }}> {e.title}</NavLink></MenuItem>))}
           </Box>
@@ -97,7 +95,7 @@ const NavBar = () => {
               aria-haspopup="true"
               color="primary"
             >
-              <Link to="/login" style={{ color: "#000000" }}>
+              <Link to="/login" style={{ color: "#000000" }}>             
                 <AccountCircle />
               </Link>
             </IconButton>

@@ -1,4 +1,3 @@
-import './App.css';
 import PostDetailContainer from './container/PostDetailContainer';
 import PostListContainer from './container/PostListContainer';
 import { Routes, Route } from 'react-router-dom';
