@@ -67,7 +67,7 @@ const NavBar = () => {
             >
               {category.map((e) => (<MenuItem key={e.title}><NavLink to={e.link} style={{ textDecoration: "none", color: "#000000"  }} color="inherit">{e.title}</NavLink></MenuItem>))}
             </Menu>
-            <Box sx={{ flexGrow: 1, justifyContent: 'center' }}>
+            <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'space-around' }}>
               <IconButton
                 size="large"
                 aria-label="login icon"
@@ -83,7 +83,9 @@ const NavBar = () => {
           </Box>
           <Link to="https://armandoweb.agency/">
             <Box component="img" sx={{ width: 100, mr: 1, display: { xs: 'flex', md: 'none' } }} src={logo} />
-          </Link>          
+          </Link> 
+
+
           <Box sx={{ flexGrow: 1, justifyContent: 'center', display: { xs: 'none', md: 'flex' } }}>
             {category.map((e) => (<MenuItem key={e.title}><NavLink to={e.link} style={{ textDecoration: "none", color: "#000000" }}> {e.title}</NavLink></MenuItem>))}
           </Box>
